@@ -25,8 +25,10 @@ pipeline {
         stage("s3 upload"){
             steps{
                 script{
-                    sh '''s3Upload(file:'spring-boot-rest-example-0.5.0.war', bucket:'pratyush-bucket', path:'/var/lib/jenkins/workspace/buildPipeline/target/spring-boot-rest-example-0.5.0.war
-')'''
+                    withAWS(region:'us-east-1',credentials:'aws-key'){
+                        s3Upload(bucket: 'pratyush-bucket', workingDir:'buildPipeline', includePathPattern:'**/*.war');')
+
+                    }
                 }
             }
         }
