@@ -26,7 +26,7 @@ pipeline {
             steps{
                 script{
                     withAWS(region:'us-east-1',credentials:'aws-key'){
-                        s3Upload(bucket: 'pratyush-bucket', workingDir:'buildPipeline', includePathPattern:'**/*.war');
+                        s3Upload(bucket: 'pratyush-bucket', workingDir:'target', includePathPattern:'**/*.war');
 
                     }
                 }
