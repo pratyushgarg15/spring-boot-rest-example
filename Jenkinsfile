@@ -25,7 +25,7 @@ pipeline {
         stage("s3 upload"){
             steps{
                 script{
-                    sh '''s3Upload(file:'spring-boot-rest-example-0.5.0.war', bucket:'pratyush-bucket', path:'/var/lib/jenkins/workspace/buildPipeline/target
+                    sh '''s3Upload(file:'spring-boot-rest-example-0.5.0.war', bucket:'pratyush-bucket', path:'/var/lib/jenkins/workspace/buildPipeline/target/spring-boot-rest-example-0.5.0.war
 ')'''
                 }
             }
