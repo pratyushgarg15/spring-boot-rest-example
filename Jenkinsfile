@@ -28,7 +28,6 @@ pipeline {
                     
                         s3Upload(bucket: 'pratyush-bucket', workingDir:'target', includePathPattern:'**/*.war');
 
-                    }
                 }
             }
         }
