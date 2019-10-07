@@ -25,7 +25,7 @@ pipeline {
         stage("s3 upload"){
             steps{
                 script{
-                    withAWS(region:'us-east-1',credentials:'aws-key'){
+                    
                         s3Upload(bucket: 'pratyush-bucket', workingDir:'target', includePathPattern:'**/*.war');
 
                     }
