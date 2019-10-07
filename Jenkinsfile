@@ -25,7 +25,7 @@ pipeline {
         stage("append build number"){
             steps{
                 script{
-                    sh ''' cd /var/lib/jenkins/workspace/build-deploy-pipeline/target '''
+                    sh ''' cd /var/lib/jenkins/workspace/build-deploy-pipeline/target/ '''
                     sh ''' ls '''
                     sh '''mv *.war spring-boot-rest-example-0.5.0-$BUILD_NUMBER.war '''
                 }
