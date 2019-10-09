@@ -48,7 +48,7 @@ pipeline {
  '''            }
                 }
             }
-        }
+        
         stage("Wait for Deployment"){
             steps{
                 script{
@@ -65,5 +65,5 @@ pipeline {
             }
         }
     }
-    
+}
 
