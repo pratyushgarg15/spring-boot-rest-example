@@ -41,6 +41,29 @@ pipeline {
                 }
             }
         }
+        stage("Increase ASG desired capacity"){
+            steps{
+                script{
+                    sh ''' aws autoscaling set-desired-capacity --auto-scaling-group-name pratyush-ASG --desired-capacity 2
+ '''
+                }
+            }
+        }
+        stage("Wait for Deployment"){
+            steps{
+                script{
+                    sleep(300);
+                }
+            }
+        }
+        stage("Decrease ASG desired capacity"){
+            steps{
+                script{
+                    sh ''' aws autoscaling set-desired-capacity --auto-scaling-group-name pratyush-ASG --desired-capacity 1
+'''
+                }
+            }
+        }
     }
 }    
 
