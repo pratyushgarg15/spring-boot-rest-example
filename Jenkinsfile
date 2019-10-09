@@ -43,9 +43,9 @@ pipeline {
         }
         stage("Increase ASG desired capacity"){
             steps{
-                script{
+                withAWS(region:'us-east-1'){
                     sh ''' aws autoscaling set-desired-capacity --auto-scaling-group-name pratyush-ASG --desired-capacity 2
- '''
+ '''            }
                 }
             }
         }
@@ -58,7 +58,7 @@ pipeline {
         }
         stage("Decrease ASG desired capacity"){
             steps{
-                script{
+                withAWS(region:'us-east-1'){
                     sh ''' aws autoscaling set-desired-capacity --auto-scaling-group-name pratyush-ASG --desired-capacity 1
 '''
                 }
